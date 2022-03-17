@@ -1,0 +1,399 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "Business information relevant to each Product",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "libraryName": "Mobile Design Library",
+            "description": "Introduce engineering efficiency while building customer facing Journeys by offering a catalogue of reusable UI components that can benefit any mobile app.",
+            "platform": "iOS",
+            "teamOwnership": "Mobile Foundation",
+            "pod": {
+                "name": "Catbus",
+                "teambookLink": "https://teambook.hk.hsbc/Pods?countries=all&roles=all&empclass=all&groupby=team&showeimapps=false&showemptypods=true&pods=5:s|142:s|602:s|2139:n&page=1"
+            },
+            "valueStreams": "Enabler",
+            "slackChannel": "#mobile-design-lib",
+            "startHereConfluencePage": "https://wpb-confluence.systems.uk.hsbc/confluence/pages[...]",
+            "releaseProcessDocument": "https://wpb-confluence.systems.uk.hsbc/confluence/pages[...]",
+            "JiraProject": "https://wpb-jira.systems.uk.hsbc/projects/MOBPL/",
+            "innerSource": true,
+            "productLead": {
+                "name": "John Smith",
+                "email": "John.smith@hsbc.com",
+                "staffId": "123456"
+            },
+            "technicalLead": {
+                "name": "John Smith",
+                "email": "John.smith@hsbc.com",
+                "staffId": "123456"
+            },
+            "deliveryLead": {
+                "name": "John Smith",
+                "email": "John.smith@hsbc.com",
+                "staffId": "123456"
+            },
+            "thirdParty": true,
+            "metaDataVersion": "1.0.0",
+            "isDeprecated": false,
+            "dateToBeDemised": "20-MAR-2021"
+        }
+    ],
+    "required": [
+        "libraryName",
+        "description",
+        "platform",
+        "teamOwnership",
+        "valueStreams",
+        "innerSource",
+        "productLead",
+        "technicalLead",
+        "deliveryLead",
+        "thirdParty",
+        "metaDataVersion",
+        "isDeprecated"
+    ],
+    "properties": {
+        "libraryName": {
+            "$id": "#/properties/libraryName",
+            "type": "string",
+            "title": "The libraryName schema",
+            "description": "The business facing name used to refer to the library",
+            "default": "",
+            "examples": [
+                "Mobile Design Library"
+            ]
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The description schema",
+            "description": "A description of the libraries purpose/ Vision of the library",
+            "default": "",
+            "examples": [
+                "Introduce engineering efficiency while building customer facing Journeys by offering a catalogue of reusable UI components that can benefit any mobile app."
+            ]
+        },
+        "platform": {
+            "$id": "#/properties/platform",
+            "type": "string",
+            "enum": ["iOS", "Android", "NA"],
+            "title": "The platform schema",
+            "description": "Describes the platform the library is relevant for.",
+            "default": "",
+            "examples": [
+                "iOS"
+            ]
+        },
+        "teamOwnership": {
+            "$id": "#/properties/teamOwnership",
+            "type": "string",
+            "title": "The teamOwnership schema",
+            "description": "The team which is responsible & owns for the library.",
+            "default": "",
+            "examples": [
+                "Mobile Foundation"
+            ]
+        },
+        "pod": {
+            "$id": "#/properties/pod",
+            "type": "object",
+            "title": "The pod schema",
+            "description": "Information relevant to identifying pod that created the library.",
+            "default": {},
+            "examples": [
+                {
+                    "name": "Catbus",
+                    "teambookLink": "https://teambook.hk.hsbc/Pods?countries=all&roles=all&empclass=all&groupby=team&showeimapps=false&showemptypods=true&pods=5:s|142:s|602:s|2139:n&page=1"
+                }
+            ],
+            "required": [
+                "name",
+                "teambookLink"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/pod/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "Catbus"
+                    ]
+                },
+                "teambookLink": {
+                    "$id": "#/properties/pod/properties/teambookLink",
+                    "type": "string",
+                    "title": "The teambookLink schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "https://teambook.hk.hsbc/Pods?countries=all&roles=all&empclass=all&groupby=team&showeimapps=false&showemptypods=true&pods=5:s|142:s|602:s|2139:n&page=1"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "valueStreams": {
+            "$id": "#/properties/valueStreams",
+            "type": "string",
+            "title": "The valueStreams schema",
+            "description": "Value Stream that owns this repository",
+            "default": "",
+            "examples": [
+                "Enabler"
+            ]
+        },
+        "slackChannel": {
+            "$id": "#/properties/slackChannel",
+            "type": "string",
+            "title": "The slackChannel schema",
+            "description": "Slack channel for discussing matters related to this repository.",
+            "default": "",
+            "examples": [
+                "#mobile-design-lib"
+            ]
+        },
+        "startHereConfluencePage": {
+            "$id": "#/properties/startHereConfluencePage",
+            "type": "string",
+            "title": "The startHereConfluencePage schema",
+            "description": "A confluence page describing the product and any quick start guides.",
+            "default": "",
+            "examples": [
+                "https://wpb-confluence.systems.uk.hsbc/confluence/pages[...]"
+            ]
+        },
+        "releaseProcessDocument": {
+            "$id": "#/properties/releaseProcessDocument",
+            "type": "string",
+            "title": "The releaseProcessDocument schema",
+            "description": "A link to the document describing the release process of the library.",
+            "default": "",
+            "examples": [
+                "https://wpb-confluence.systems.uk.hsbc/confluence/pages[...]"
+            ]
+        },
+        "JiraProject": {
+            "$id": "#/properties/JiraProject",
+            "type": "string",
+            "title": "The JiraProject schema",
+            "description": "Jira project link",
+            "default": "",
+            "examples": [
+                "https://wpb-jira.systems.uk.hsbc/projects/MOBPL/"
+            ]
+        },
+        "innerSource": {
+            "$id": "#/properties/innerSource",
+            "type": "boolean",
+            "title": "The innerSource schema",
+            "description": "Is it an innerSourced Library",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "productLead": {
+            "$id": "#/properties/productLead",
+            "type": "object",
+            "title": "The productLead schema",
+            "description": "Contact details of the Product Lead",
+            "default": {},
+            "examples": [
+                {
+                    "name": "John Smith",
+                    "email": "John.smith@hsbc.com",
+                    "staffId": "123456"
+                }
+            ],
+            "required": [
+                "name",
+                "email",
+                "staffId"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/productLead/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "The full name of the Product Lead.",
+                    "default": "",
+                    "examples": [
+                        "John Smith"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/productLead/properties/email",
+                    "type": "string",
+                    "title": "The email schema",
+                    "description": "An email address to contact the Product Lead",
+                    "default": "",
+                    "examples": [
+                        "John.smith@hsbc.com"
+                    ]
+                },
+                "staffId": {
+                    "$id": "#/properties/productLead/properties/staffId",
+                    "type": "string",
+                    "title": "The staffId schema",
+                    "description": "The Staff ID to contact the Product Lead.",
+                    "default": "",
+                    "examples": [
+                        "123456"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "technicalLead": {
+            "$id": "#/properties/technicalLead",
+            "type": "object",
+            "title": "The technicalLead schema",
+            "description": "Contact details of the Technical Lead",
+            "default": {},
+            "examples": [
+                {
+                    "name": "John Smith",
+                    "email": "John.smith@hsbc.com",
+                    "staffId": "123456"
+                }
+            ],
+            "required": [
+                "name",
+                "email",
+                "staffId"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/technicalLead/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "The full name of the Technical Lead.",
+                    "default": "",
+                    "examples": [
+                        "John Smith"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/technicalLead/properties/email",
+                    "type": "string",
+                    "title": "An email address to contact the Technical Lead",
+                    "description": "",
+                    "default": "",
+                    "examples": [
+                        "John.smith@hsbc.com"
+                    ]
+                },
+                "staffId": {
+                    "$id": "#/properties/technicalLead/properties/staffId",
+                    "type": "string",
+                    "title": "The staffId schema",
+                    "description": "The Staff ID to contact the Technical Lead.",
+                    "default": "",
+                    "examples": [
+                        "123456"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "deliveryLead": {
+            "$id": "#/properties/deliveryLead",
+            "type": "object",
+            "title": "The deliveryLead schema",
+            "description": "Contact details of the Delivery Lead",
+            "default": {},
+            "examples": [
+                {
+                    "name": "John Smith",
+                    "email": "John.smith@hsbc.com",
+                    "staffId": "123456"
+                }
+            ],
+            "required": [
+                "name",
+                "email",
+                "staffId"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/deliveryLead/properties/name",
+                    "type": "string",
+                    "title": "The name schema",
+                    "description": "The full name of the Delivery Lead.",
+                    "default": "",
+                    "examples": [
+                        "John Smith"
+                    ]
+                },
+                "email": {
+                    "$id": "#/properties/deliveryLead/properties/email",
+                    "type": "string",
+                    "title": "The email schema",
+                    "description": "An email address to contact the Delivery Lead",
+                    "default": "",
+                    "examples": [
+                        "John.smith@hsbc.com"
+                    ]
+                },
+                "staffId": {
+                    "$id": "#/properties/deliveryLead/properties/staffId",
+                    "type": "string",
+                    "title": "The staffId schema",
+                    "description": "An email address to contact the Delivery Lead",
+                    "default": "",
+                    "examples": [
+                        "123456"
+                    ]
+                }
+            },
+            "additionalProperties": true
+        },
+        "thirdParty": {
+            "$id": "#/properties/thirdParty",
+            "type": "boolean",
+            "title": "The thirdParty schema",
+            "description": "Is this a third party SDK?",
+            "default": false,
+            "examples": [
+                true
+            ]
+        },
+        "metaDataVersion": {
+            "$id": "#/properties/metaDataVersion",
+            "type": "string",
+            "title": "The metaDataVersion schema",
+            "description": "Version of the meta data file",
+            "default": "",
+            "examples": [
+                "1.0.0"
+            ]
+        },
+        "isDeprecated": {
+            "$id": "#/properties/isDeprecated",
+            "type": "boolean",
+            "title": "The isDeprecated schema",
+            "description": "Is this library deprecated?",
+            "default": false,
+            "examples": [
+                false
+            ]
+        },
+        "dateToBeDemised": {
+            "$id": "#/properties/dateToBeDemised",
+            "type": "string",
+            "title": "The dateToBeDemised schema",
+            "description": "When will this library be demised after deprecation?",
+            "default": "",
+            "examples": [
+                "20-MAR-2021"
+            ]
+        }
+    },
+    "additionalProperties": true
+}
