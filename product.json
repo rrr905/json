@@ -1,0 +1,34 @@
+{
+  "libraryName": "Profile",
+  "description": "The library has been created to show Profile journey",
+  "platform": "Android",
+  "pod": {
+    "name": "Havelock",
+    "teambookLink": " https://teambook.global.hsbc/Pods?countries=all&roles=all&empclass=all&hashtags=all&groupby=team&showeimapps=false&showemptypods=true&pods=73:s|142:s|602:s|17699:n&page=1"
+  },
+  "valueStreams": "Digital Platforms",
+  "subValueStreams": "Mobile Platform (Global)",
+  "slackChannel": "#mobile-profile-lib",
+  "startHereConfluencePage": "https://wpb-confluence.systems.uk.hsbc/display/MOBENG/",
+  "releaseProcessDocument": "",
+  "JiraProject": "https://wpb-jira.systems.uk.hsbc/projects/MOBPL/",
+  "innerSource": false,
+  "productLead": {
+    "name": "Jana Huerta Sala",
+    "email": "jana.huerta.sala@hsbc.com",
+    "staffId": "45126791"
+  },
+  "technicalLead": {
+    "name": "Samuel Ward",
+    "email": "samuel.ward@hsbc.com",
+    "staffId": "44106999"
+  },
+  "deliveryLead": {
+    "name": "Suneet Divshikar",
+    "email": "suneet.divshikar@hsbc.co.in",
+    "staffId": "45158716"
+  },
+  "thirdParty": false,
+  "metaDataVersion": "1.0.0",
+  "isDeprecated": false
+}
