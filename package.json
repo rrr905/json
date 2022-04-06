@@ -1,0 +1,61 @@
+{
+  "name": "compliance-bot-ts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compliance Bot. Checks that the project is compliant with Mobile policies on Pipelines and Code Quality reporting",
+  "author": "Daniel Simon BUTLER <daniel.simon.butler@noexernalmail.hsbc.com>",
+  "license": "ISC",
+  "homepage": "https://github.com/mobile/compliance-bot-ts",
+  "keywords": [
+    "probot",
+    "github",
+    "probot-app",
+    "compliance-bot"
+  ],
+  "config": {
+    "zipfile": "lambda_bundle.zip",
+    "s3": {
+      "bucket": "134595346395-dev-github-apps-deploy",
+      "key": "deploy/compliance-bot.zip"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prelambdaBundle": "npm ci --production",
+    "lambdaBundle": "sh -c 'export ZIPFILE=$(npm run zipfile $1 | tail -n 1) ; zip -r - node_modules package-lock.json package.json LICENSE > $ZIPFILE && ( cd lib && zip -r $ZIPFILE . ) && echo $ZIPFILE' - ",
+    "prepublishLambdaBundle": "npm install",
+    "publishLambdaBundle": "sh -c 'export ZIPFILE=$(npm run zipfile $1 | tail -n 1) ; aws s3 cp --sse aws:kms $ZIPFILE s3://$npm_package_config_s3_bucket/$npm_package_config_s3_key' - ",
+    "updateExtensions": "npm install $npm_package_dependencies__hsbc_probot_lambda_extensions",
+    "helper": "node helper.js ",
+    "start": "probot run ./lib/index.js",
+    "test": "jest",
+    "zipfile": "python3 -c 'import sys; import os; from pathlib import Path ; print(Path(sys.argv[1] if len(sys.argv) > 1 else os.environ[\"npm_package_config_zipfile\"]).absolute())' "
+  },
+  "dependencies": {
+    "@hsbc/probot-lambda-extensions": "git+ssh://git@alm-github.systems.uk.hsbc:mobile/probot-lambda-extensions.git",
+    "@probot/adapter-aws-lambda-serverless": "^2.0.2",
+    "ajv": "^8.6.2",
+    "axios": "^0.21.1",
+    "deepmerge": "^4.2.2",
+    "jsonpointer": "^4.1.0",
+    "minimatch": "^3.0.4",
+    "probot": "^12.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/minimatch": "^3.0.5",
+    "@types/node": "^14.17.6",
+    "aws-sdk": "^2.970.0",
+    "jest": "^26.6.3",
+    "nock": "^13.1.1",
+    "smee-client": "^1.2.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.3.5"
+  },
+  "engines": {
+    "node": "12.18.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
